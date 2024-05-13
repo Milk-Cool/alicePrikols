@@ -1,10 +1,10 @@
 const express = require("express");
 const modules = require("./modules/index.js");
 
-const app = express();
-const port = 3100;
+const { DEBUG, PORT } = process.env;
 
-const { DEBUG } = process.env;
+const app = express();
+const port = PORT ? parseInt(PORT) : 3100;
 
 app.use(express.json());
 
