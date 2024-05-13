@@ -36,10 +36,11 @@ module.exports = rbody => {
     if(!(session_id in states))
         states[session_id] = new State();
     const { state } = rbody;
-    let updateState = state?.user ?? {
-        "played": 0,
-        "won": 0
-    };
+    let updateState = state?.user ?? {};
+    if(!("played" in updateState))
+        updateState.played = 0;
+    if(!("won" in updateState))
+        updateState.won = 0;
     let final = false;
 
     let ans;
@@ -137,7 +138,7 @@ module.exports = rbody => {
             tts: ans ?? "",
             end_session: final,
         },
-        session,
+        // session,
         user_state_update: updateState
     };
 
