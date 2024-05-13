@@ -31,7 +31,8 @@ module.exports = rbody => {
     let { command } = rbody.request;
     command = command.toLowerCase().match(/[а-я ]/g)?.join("") ?? ""
     /** @type {string} */
-    const { session_id } = rbody.session;
+    const { session } = rbody;
+    const { session_id } = session;
     if(!(session_id in states))
         states[session_id] = new State();
     const { state } = rbody;
@@ -136,6 +137,7 @@ module.exports = rbody => {
             tts: ans ?? "",
             end_session: final,
         },
+        session,
         user_state_update: updateState
     };
 
