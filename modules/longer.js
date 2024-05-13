@@ -137,7 +137,7 @@ module.exports = rbody => {
             tts: ans ?? "",
             end_session: final,
         },
-        session,
+        // session,
         user_state_update: updateState
     };
 
