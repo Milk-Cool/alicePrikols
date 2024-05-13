@@ -1,0 +1,25 @@
+{
+  "name": "aliceprikols",
+  "version": "0.1.0",
+  "description": "Alice Prikols",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Milk-Cool/alicePrikols.git"
+  },
+  "keywords": [
+    "prikols"
+  ],
+  "author": "Milk_Cool",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Milk-Cool/alicePrikols/issues"
+  },
+  "homepage": "https://github.com/Milk-Cool/alicePrikols#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
