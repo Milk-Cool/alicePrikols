@@ -86,11 +86,11 @@ module.exports = rbody => {
             const roomID = states[session_id].room;
             const thisPlayer = states[session_id].player - 1;
             const otherPlayer = 1 - thisPlayer;
-            if(rooms[roomID].words[thisPlayer] == "")
-                rooms[roomID].words[thisPlayer] = NOPE;
-            if(rooms[roomID].players[otherPlayer] == -1) {
+            if(rooms[roomID].players[otherPlayer] == -1)
                 ans = `Мы всё ещё ищем соперника... Подождите и скажите "результат" снова.`;
-            } else {
+            else {
+                if(rooms[roomID].words[thisPlayer] == "")
+                    rooms[roomID].words[thisPlayer] = NOPE;
                 const otherPlayersWord = rooms[roomID].words[otherPlayer];
                 let finish = true;
                 if(otherPlayersWord == "" || otherPlayersWord == NOPE) {
@@ -101,7 +101,9 @@ module.exports = rbody => {
                         finish = false;
                     }
                 } else
-                    ans = `Слово соперника: ${otherPlayersWord}. Сыграем снова?`;
+                    ans = `Слово соперника: ${otherPlayersWord}.
+                    ${otherPlayersWord.length > rooms[roomID].words[thisPlayer].length ? "Вы проиграли..." : "Вы выиграли!"}
+                    Сыграем снова?`;
                 if(finish) {
                     if(rooms[roomID].words[thisPlayer].length > rooms[roomID].words[otherPlayer].length) {
                         updateState.won++;
@@ -109,14 +111,14 @@ module.exports = rbody => {
                     updateState.played++;
                     states[session_id].player = 0;
                     states[session_id].room = -1;
-                    if(states[rooms[roomID].players[otherPlayer]].player == -1)
+                    if(states[rooms[roomID].players[otherPlayer]].player == 0)
                         delete rooms[roomID];
                 }
             }
         } else {
             if(new Date() - states[session_id].start > timeout)
                 ans = `Время истекло! Скажите "результат", чтобы узнать результат.`;
-            else if(command.match(/[а-я]+/)[0] != command || !themes[rooms[states[session_id].room].theme].includes(command))
+            else if(command.match(/[а-я]+/)?.[0] != command || !themes[rooms[states[session_id].room].theme].includes(command))
                 ans = `Выберите другое слово!`;
             else {
                 rooms[states[session_id].room].words[states[session_id].player - 1] = command;
