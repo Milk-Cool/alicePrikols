@@ -1,4 +1,4 @@
-module.exports = rbody => {
+module.exports = _rbody => {
     const audio = [
         `<speaker audio="dialogs-upload/e879aa6e-93dc-4c3d-8c2f-c733d22efb3a/f8000067-5194-465f-b2ae-8ca20e76285f.opus">`,
         `<speaker audio="dialogs-upload/e879aa6e-93dc-4c3d-8c2f-c733d22efb3a/4f4365dc-8608-4dd1-bad9-e68c25821caf.opus">`,
