@@ -114,10 +114,10 @@ module.exports = rbody => {
                 }
             }
         } else {
-            if(command.match(/[а-я]+/)[0] != command)
-                ans = `Выберите другое слово!`;
-            else if(new Date() - states[session_id].start > timeout)
+            if(new Date() - states[session_id].start > timeout)
                 ans = `Время истекло! Скажите "результат", чтобы узнать результат.`;
+            else if(command.match(/[а-я]+/)[0] != command || !themes[rooms[states[session_id].room].theme].includes(command))
+                ans = `Выберите другое слово!`;
             else {
                 rooms[states[session_id].room].words[states[session_id].player - 1] = command;
                 if(rooms[states[session_id].room].words[1 - (states[session_id].player - 1)] != "")
