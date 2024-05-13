@@ -35,7 +35,7 @@ module.exports = rbody => {
     if(!(session_id in states))
         states[session_id] = new State();
     const { state } = rbody;
-    let updateState = state ?? {
+    let updateState = state?.user ?? {
         "played": 0,
         "won": 0
     };
