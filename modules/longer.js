@@ -109,7 +109,7 @@ module.exports = rbody => {
                     updateState.played++;
                     states[session_id].player = 0;
                     states[session_id].room = -1;
-                    if(states[rooms[roomID].players[otherPlayer]].player == 0)
+                    if(states[rooms[roomID].players[otherPlayer]].player == -1)
                         delete rooms[roomID];
                 }
             }
