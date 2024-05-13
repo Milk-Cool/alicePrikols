@@ -56,7 +56,7 @@ module.exports = rbody => {
             ans = `${updateState.played} игр сыграно, ${updateState.won} игр выиграно.`
         } else if(command == "музыка") {
             ans = `Музыка взята с сайта purpleplanet.com.`;
-        } else if(command == "играть" || command == "начать") {
+        } else if(command == "играть" || command == "начать" || command == "да") {
             if(rooms.length == counter + 1) { // We have a free room!
                 states[session_id].player = 2;
                 rooms[counter].players[1] = session_id;
