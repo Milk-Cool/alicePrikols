@@ -6,7 +6,7 @@ module.exports = rbody => {
     const original = `<speaker audio="dialogs-upload/2bc64863-4653-4ec5-b2fb-b74c7aa69b95/f452d89c-b714-4862-be1a-ad9eb2034151.opus">`;
 
     let { command } = rbody.request;
-    command = command.toLowerCase().match(/[а-я ]/g)?.join("") ?? "";
+    command = command.toLowerCase().match(/[а-я0-9 ]/g)?.join("") ?? "";
     const { session_id } = rbody.session;
 
     const word2num = word => ({
@@ -22,7 +22,11 @@ module.exports = rbody => {
     })[word];
 
     let ans;
-    switch(command) {
+    if(!command) ans = `Скажите "начать", чтобы играть.
+        Скажите "правила", чтобы узнать правила.
+        Скажите "звуки", чтобы узнать, откуда автор взял звуки.
+        Скажите "стоп", чтобы выйти.`;
+    else switch(command) {
         case "начать":
         case "играть":
         case "да":
@@ -40,12 +44,6 @@ module.exports = rbody => {
             break;
         case "звуки":
             ans = `Звуки взяты с сайта freesound.org.`
-            break;
-        case "":
-            ans = `Скажите "начать", чтобы играть.
-            Скажите "правила", чтобы узнать правила.
-            Скажите "звуки", чтобы узнать, откуда автор взял звуки.
-            Скажите "стоп", чтобы выйти.`;
             break;
         default:
             if(!answers[session_id]) {
