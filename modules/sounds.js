@@ -59,6 +59,7 @@ module.exports = rbody => {
                 ans = `Правильно! Сыграем ещё?`;
             else
                 ans = `Неправильно! Попробуем ещё?`;
+            delete answers[session_id];
             break;
     }
 
