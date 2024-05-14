@@ -66,7 +66,7 @@ module.exports = rbody => {
 
     const body = {
       "response": {
-          "text": ans?.replace(/<.+/g, "") ?? "*звук*",
+          "text": ans?.replace(/<.+/g, "") || "*звук*",
           "tts": ans,
           "end_session": false,
           "should_listen": false
