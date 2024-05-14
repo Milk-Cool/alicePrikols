@@ -6,7 +6,7 @@ module.exports = rbody => {
       "response": {
           "text": text.replaceAll("+", ""),
           "tts": `${text} ${audio}`,
-          "end_session": true,
+          "end_session": false,
           "should_listen": false
         },
         "version": "1.0"
