@@ -4,7 +4,7 @@ module.exports = rbody => {
 
     const body = {
       "response": {
-          text,
+          "text": text.replaceAll("+", ""),
           "tts": `${text} ${audio}`,
           "end_session": true,
           "should_listen": false
