@@ -3,5 +3,6 @@ module.exports = {
     real_quiz: require("./real_quiz.js"),
     tim_mode: require("./tim_mode.js"),
     longer: require("./longer.js"),
-    goose: require("./goose.js")
+    goose: require("./goose.js"),
+    grotesk: require("./grotesk.js")
 }
