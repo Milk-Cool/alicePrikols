@@ -33,7 +33,7 @@ module.exports = rbody => {
             break;
         case "правила":
         case "как играть":
-            ans = `Правила простые: вы услишите аудиозапись с разными звуками.
+            ans = `Правила простые: вы услышите аудиозапись с разными звуками.
             Вам нужно определить, сколько будет таких звуков в аудиозаписи:
             ${original}
             Ну что, готовы начать?`
@@ -52,7 +52,7 @@ module.exports = rbody => {
                 ans = `Неправильная команда!`;
                 break;
             }
-            const num = word2num(command);
+            const num = parseInt(command) == command ? command : word2num(command);
             if(!num) {
                 ans = `Это не натуральное число меньше 10!`;
                 break;
