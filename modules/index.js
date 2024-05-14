@@ -4,5 +4,6 @@ module.exports = {
     tim_mode: require("./tim_mode.js"),
     longer: require("./longer.js"),
     goose: require("./goose.js"),
-    grotesk: require("./grotesk.js")
+    grotesk: require("./grotesk.js"),
+    sounds: require("./sounds.js")
 }
